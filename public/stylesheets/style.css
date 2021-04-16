@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Roboto', sans-serif, arial, "time new roman";
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+#map {
+  transition: .5s;
+  height: 100%; }
+
+.map {
+  height: 500px; }
+
+/*# sourceMappingURL=style.css.map */

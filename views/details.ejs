@@ -1,0 +1,998 @@
+<% var arrName = 	[
+						"nam-hoa-xuan",
+						"nguyen-tri-phuong",
+						"dao-vip",
+						"hoa-xuan-1a",
+						"lang-chau-au-1",
+						"lang-chau-au-2"
+					]
+	var cvtName =   [
+						"Nam Hoà Xuân",
+						"Nguyễn Tri Phương",
+						"Đảo VIP",
+						"Hoà Xuân 1A",
+						"Làng Châu Âu 1",
+						"Làng Châu Âu 2",
+					]
+%>
+    <!DOCTYPE html>
+    <html lang="vi">
+
+    <head>
+        <style type="text/css">
+            .gm-control-active img {
+                box-sizing: content-box;
+                pointer-events: none
+            }
+            
+            .gm-control-active:hover img:nth-child(1),
+            .gm-control-active:active img:nth-child(1),
+            .gm-control-active:active img:nth-child(2) {
+                display: none
+            }
+        </style>
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+        <style type="text/css">
+            .gm-ui-hover-effect {
+                opacity: .7
+            }
+            
+            .gm-ui-hover-effect:hover {
+                opacity: 1
+            }
+        </style>
+        <style type="text/css">
+            .gm-style .gm-style-cc span,
+            .gm-style .gm-style-cc a,
+            .gm-style .gm-style-mtc div {
+                font-size: 10px;
+                box-sizing: border-box
+            }
+        </style>
+        <style type="text/css">
+            @media print {
+                .gm-style .gmnoprint,
+                .gmnoprint {
+                    display: none
+                }
+            }
+            
+            @media screen {
+                .gm-style .gmnoscreen,
+                .gmnoscreen {
+                    display: none
+                }
+            }
+        </style>
+        <style type="text/css">
+            .gm-style-pbc {
+                transition: opacity ease-in-out;
+                background-color: rgba(0, 0, 0, 0.45);
+                text-align: center
+            }
+            
+            .gm-style-pbt {
+                font-size: 22px;
+                color: white;
+                font-family: Roboto, Arial, sans-serif;
+                position: relative;
+                margin: 0;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%)
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%-infoCompany.metaSEO%>
+            <link rel="canonical" href="<%-href%>">
+            <title>
+                <%-infoCompany.companyName%> – Mua bán hỗ trợ giao dịch
+                    <%-cvtName[arrName.indexOf(details["Khu Vực"].split("-happy-real").join(""))]%>
+                        <%-infoCompany.location.city%> - Bất động sản Đĩa Ốc</title>
+            <meta property="og:title" content="Đất nền hoà xuân Đà Nẵng">
+            <link rel="alternate" type="application/rss+xml" title="Happy Real » Trang chủ Đất nền hoà xuân Đà Nẵng" href="/">
+            <style type="text/css">
+                #map {
+                    height: 40em;
+                }
+                
+                html,
+                body {
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .icon-image-up {
+                    max-height: 226px;
+                    max-width: 270px;
+                }
+            </style>
+            <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2">
+            <link rel="stylesheet" id="mapescape.css-css" href="./content/plugins/HappyReal/libraries/mapescape/css/mapescape.css?ver=20160604" type="text/css" media="all">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.carousel.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/assets/owl.theme.default.min.css">
+            <link rel="stylesheet" href="./stylesheets/slider.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff">
+            <link rel="stylesheet" id="fontawesome-css" href="./content/themes/HappyReal/assets/libraries/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+            <link rel="stylesheet" id="open-sans-css" href="https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&amp;subset=latin%2Clatin-ext&amp;ver=4.4.1" type="text/css" media="all">
+            <link rel="stylesheet" id="colorbox-css" href="./content/themes/HappyReal/assets/libraries/colorbox/example1/colorbox.css?ver=4.4.1" type="text/css" media="all">
+            <link rel="stylesheet" id="pictopro-css" href="./content/themes/HappyReal/assets/libraries/fonts/PictoPro/style.css?ver=4.4.1" type="text/css" media="all">
+            <link rel="stylesheet" id="HappyReal-css-css" href="./content/themes/HappyReal/assets/css/HappyReal.css?ver=20170117" type="text/css" media="all">
+            <link rel="stylesheet" id="style-css" href="./content/themes/HappyReal/style.css?ver=4.4.1" type="text/css" media="all">
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe1F9nnU_h75yopZAOtHw-atE4Ix54YcM&libraries=places"></script>
+            <script type="text/javascript" src="./content/plugins/HappyReal/libraries/jquery.chained.remote.custom.min.js?ver=4.4.1"></script>
+            <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="./css/ion.rangeSlider.css" />
+            <link rel="stylesheet" href="./css/ion.rangeSlider.skinFlat.css" />
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.3/owl.carousel.min.js"></script>
+            <style>
+                #sync1 .item {
+                    background: #0c83e7;
+                    padding: 80px 0px;
+                    margin: 5px;
+                    color: #FFF;
+                    border-radius: 3px;
+                    text-align: center;
+                }
+                
+                #sync2 .item {
+                    background: #C9C9C9;
+                    padding: 10px 0px;
+                    margin: 5px;
+                    color: #FFF;
+                    border-radius: 3px;
+                    text-align: center;
+                    cursor: pointer;
+                }
+                
+                #sync2 .item h1 {
+                    font-size: 18px;
+                }
+                
+                #sync2 .current .item {
+                    background: #0c83e7;
+                }
+                
+                .owl-theme .owl-nav {
+                    /*default owl-theme theme reset .disabled:hover links */
+                }
+                
+                .owl-theme .owl-nav [class*='owl-'] {
+                    transition: all 0.3s ease;
+                }
+                
+                .owl-theme .owl-nav [class*='owl-'].disabled:hover {
+                    background-color: #D6D6D6;
+                }
+                
+                #sync1.owl-theme {
+                    position: relative;
+                }
+                
+                #sync1.owl-theme .owl-next,
+                #sync1.owl-theme .owl-prev {
+                    width: 22px;
+                    height: 40px;
+                    margin-top: -20px;
+                    position: absolute;
+                    top: 50%;
+                }
+                
+                #sync1.owl-theme .owl-prev {
+                    left: 10px;
+                }
+                
+                #sync1.owl-theme .owl-next {
+                    right: 10px;
+                }
+                
+                .fix-zalo {
+                    display: none;
+                }
+                
+                .fix-icon-zalo {
+                    line-height: 1em;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 1em;
+                    background: url('./assets/images/zalo.png') no-repeat center center;
+                    background-size: 100%;
+                }
+                
+                .item .show-slide {
+                    width: 100%;
+                    height: 400px;
+                }
+                
+                .item .icons-slide {
+                    max-height: 75px;
+                }
+                
+                @media screen and (min-width: 768px) {
+                    .fix-zalo {
+                        display: flex;
+                    }
+                }
+            </style>
+            <link rel="stylesheet" href="./assets/css/fixer.css" />
+            <link rel="stylesheet" href="./stylesheets/customTable.css">
+    </head>
+
+    <body class="home page page-id-268 page-template-default">
+        <%-chatbox%>
+            <div class="page-wrapper">
+                <script>
+                    var data = [<%-JSON.stringify(details)%>];
+                </script>
+                <div class="header">
+                    <nav class="navbar navbar-default">
+                        <div class="header-top">
+                            <div class="container">
+                                <div class="navbar-header">
+                                    <!-- <a class="navbar-brand" href="./"><img class="fix-logo" src="./logo/logo.jpg" alt="Home">							
+							<span><%-infoCompany.companyName%></span>
+						</a> -->
+                                    <button type="button" class="navbar-toggle collapsed fix-pos" data-toggle="collapse" data-target="#primary-menu">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+
+                                    <!-- </div>
+						<div class="navbar-info">
+							<i class="pp pp-normal-phone"></i> <a href="tel:<%-infoCompany.phoneNumber%>‬‬"><%-infoCompany.phoneNumber%>‬‬</a>						
+						</div>
+						<div class="navbar-info">
+							<i class="pp pp-normal-pencil"></i> <a href="mailto:<%-infoCompany.email%>"><%-infoCompany.email%></a>						
+						</div>
+						<div class="navbar-info fix-zalo">
+							<div class="fix-icon-zalo"></div> <a href="http://zalo.me/<%-infoCompany.phoneNumber%>‬‬"><%-infoCompany.phoneNumber%>‬‬</a>
+						</div>
+						</a>
+									</div>
+					</div> -->
+
+
+                                    <div class="header-bottom">
+                                        <div class="container">
+                                            <div class="menu-primary-container">
+                                                <ul id="primary-menu" class="nav navbar-nav navbar-right collapse navbar-collapse">
+                                                    <li id="menu-item-449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="/">Trang chủ</a>
+                                                    </li>
+                                                    <li id="menu-item-450" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-450">
+                                                        <a style="cursor: pointer">Các khu vực</a>
+                                                        <ul class="dropdown-menu sub-menu">
+                                                            <li id="menu-item-454" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-454">
+                                                                <a href="/nguyen-tri-phuong" style="cursor: pointer">Nguyễn Tri Phương</a>
+                                                            </li>
+                                                            <li id="menu-item-454" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-454">
+                                                                <a href="/nam-hoa-xuan" style="cursor: pointer">Nam Hòa Xuân</a>
+                                                            </li>
+                                                            <li id="menu-item-455" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-455">
+                                                                <a href="/dao-vip" style="cursor: pointer">Đảo VIP</a>
+                                                            </li>
+                                                            <li id="menu-item-480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-480">
+                                                                <a href="/hoa-xuan-1a" style="cursor: pointer">Hòa Xuân 1A</a>
+                                                            </li>
+                                                            <li id="menu-item-487" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-487">
+                                                                <a href="/lang-chau-au-1" style="cursor: pointer">Làng Châu Âu</a>
+                                                            </li>
+                                                            <li id="menu-item-479" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-479">
+                                                                <a href="/lang-chau-au-2" style="cursor: pointer">Làng Châu Âu 2</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li id="menu-item-466" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="/bat-dong-san-video">Video</a></li>
+                                                    <li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="/gui-ban-<%-infoCompany.companyName.split(' ').join('-').toLowerCase()%>">Gửi Bán</a></li>
+                                                    <li id="menu-item-494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-494"><a href="/lien-he-<%-infoCompany.companyName.split(' ').join('-').toLowerCase()%>">Liên Hệ</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- /.container -->
+                                    </div>
+                                    <!-- /.header-bottom -->
+                    </nav>
+                    </div>
+                    <!-- /.header -->
+
+                    <div class="container">
+                        <div class="sidebar-top" style="margin-top: 0em;">
+
+
+
+                            <!-- table -->
+                            <div class="row">
+                                <div class="content col-sm-12 col-md-12" style="padding: 0px">
+                                    <div class="container" style="padding: 0px">
+
+                                    </div>
+                                    <!-- 		End of Container -->
+                                    <div class="container sidebar-top">
+                                        <div id="filter_rent_sale_widget-2" class="widget widget_filter_rent_sale_widget">
+
+                                            <div class="tabs">
+
+
+
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- /.sidebar -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <script src="./js/events/happy-real-controls-map.js"></script>
+
+                    <script src="./js/events/happy-real-script.js"></script>
+
+                    <div id="map"></div>
+
+                    <div class="row">
+                        <div class="content col-sm-8 col-md-9">
+
+
+
+                            <article id="post-145" class="post-145 property type-property status-publish has-post-thumbnail hentry amenities-air-conditioning amenities-bedding amenities-cable-tv amenities-dvd amenities-fan amenities-hairdryer amenities-internet amenities-juicer amenities-lift statuses-available locations-brooklyn locations-new-york-city materials-block property_types-villa">
+                                <header class="entry-header">
+                                    <h1 class="entry-title property-title" style="padding-left: .5em">
+                                        <%-details["Loại dự án"]%>
+                                    </h1>
+                                </header>
+                                <!-- .entry-header -->
+                                <div class="property-detail-subtitle">
+                                    <div class="property-location">
+                                        <a style="padding-left: .5em">
+                                            <%-cvtName[arrName.indexOf(details["Khu Vực"].split("-happy-real").join(""))]%>
+                                        </a> <span class="separator">&nbsp;- </span>
+                                        <a href="">
+                                            <%-details["Hướng"]%>
+                                        </a>
+                                    </div>
+                                    <div class="property-price">
+                                        <%-details["Giá"]%> tỉ VNĐ </div>
+                                </div>
+                                <div id="sync1" class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[0]===undefined)?'./noImage.jpg':details.image[0]%>" alt="<%-(details.image[0]===undefined)?'./noImage.jpg':details.image[0].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[1]===undefined)?'./noImage.jpg':details.image[1]%>" alt="<%-(details.image[1]===undefined)?'./noImage.jpg':details.image[1].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[2]===undefined)?'./noImage.jpg':details.image[2]%>" alt="<%-(details.image[2]===undefined)?'./noImage.jpg':details.image[2].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[3]===undefined)?'./noImage.jpg':details.image[3]%>" alt="<%-(details.image[3]===undefined)?'./noImage.jpg':details.image[3].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[4]===undefined)?'./noImage.jpg':details.image[4]%>" alt="<%-(details.image[4]===undefined)?'./noImage.jpg':details.image[4].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[5]===undefined)?'./noImage.jpg':details.image[5]%>" alt="<%-(details.image[5]===undefined)?'./noImage.jpg':details.image[5].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[6]===undefined)?'./noImage.jpg':details.image[6]%>" alt="<%-(details.image[6]===undefined)?'./noImage.jpg':details.image[6].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="show-slide" src="<%-(details.image[7]===undefined)?'./noImage.jpg':details.image[7]%>" alt="<%-(details.image[7]===undefined)?'./noImage.jpg':details.image[7].split('./uploads/').join('')%>">
+                                    </div>
+                                </div>
+                                <div id="sync2" class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[0]===undefined)?'./noImage.jpg':details.image[0]%>" alt="<%-(details.image[0]===undefined)?'./noImage.jpg':details.image[0].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[1]===undefined)?'./noImage.jpg':details.image[1]%>" alt="<%-(details.image[1]===undefined)?'./noImage.jpg':details.image[1].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[2]===undefined)?'./noImage.jpg':details.image[2]%>" alt="<%-(details.image[2]===undefined)?'./noImage.jpg':details.image[2].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[3]===undefined)?'./noImage.jpg':details.image[3]%>" alt="<%-(details.image[3]===undefined)?'./noImage.jpg':details.image[3].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[4]===undefined)?'./noImage.jpg':details.image[4]%>" alt="<%-(details.image[4]===undefined)?'./noImage.jpg':details.image[4].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[5]===undefined)?'./noImage.jpg':details.image[5]%>" alt="<%-(details.image[5]===undefined)?'./noImage.jpg':details.image[5].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[6]===undefined)?'./noImage.jpg':details.image[6]%>" alt="<%-(details.image[6]===undefined)?'./noImage.jpg':details.image[6].split('./uploads/').join('')%>">
+                                    </div>
+                                    <div class="item">
+                                        <img class="icons-slide" src="<%-(details.image[7]===undefined)?'./noImage.jpg':details.image[7]%>" alt="<%-(details.image[7]===undefined)?'./noImage.jpg':details.image[7].split('./uploads/').join('')%>">
+                                    </div>
+                                </div>
+                                <script src="./js/slider-details.js"></script>
+                                <div class="property-content">
+                                    <h2>Tổng Quan</h2>
+                                    <div class="property-overview">
+                                        <dl>
+                                            <dt>Giá</dt>
+                                            <dd>
+                                                <%-details["Giá"]%> tỉ VNĐ</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-bookmark"></i> &nbsp;&nbsp;Loại Bất động sản</dt>
+                                            <dd>
+                                                <%-details["Loại BDS"]%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-book" style="color: red"></i> &nbsp;Sổ đỏ</dt>
+                                            <dd>
+                                                <%-(details["Sổ đỏ"]==="true")?"có":"không"%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-book" style="color: pink"></i> &nbsp;Sổ hồng</dt>
+                                            <dd>
+                                                <%-(details["Sổ hồng"]==="true")?"có":"không"%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-tree" style="color: green"></i> &nbsp;Môi trường</dt>
+                                            <dd>
+                                                <div class="progress progress-md" style="background: #fff">
+                                                    <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="<%-details[" Môi trường "]%>" aria-valuemin="0" aria-valuemax="100" style="width: <%-details[" Môi trường "]%>%;">
+                                                        <%-details["Môi trường"]%>%
+                                                    </div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-shield-alt"></i> &nbsp;An ninh</dt>
+                                            <dd>
+                                                <div class="progress progress-md" style="background: #fff">
+                                                    <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="<%-details[" An ninh "]%>" aria-valuemin="0" aria-valuemax="100" style="width: <%-details[" An ninh "]%>%;">
+                                                        <%-details["An ninh"]%>%
+                                                    </div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-traffic-light"></i> &nbsp;&nbsp;Giao thông</dt>
+                                            <dd>
+                                                <div class="progress progress-md" style="background: #fff">
+                                                    <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="<%-details[" Giao thông "]%>" aria-valuemin="0" aria-valuemax="100" style="width: <%-details[" Giao thông "]%>%;">
+                                                        <%-details["Giao thông"]%>%
+                                                    </div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-ambulance"></i> &nbsp;Y tế</dt>
+                                            <dd>
+                                                <div class="progress progress-md" style="background: #fff">
+                                                    <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="<%-details[" Y tế "]%>" aria-valuemin="0" aria-valuemax="100" style="width: <%-details[" Y tế "]%>%;">
+                                                        <%-details["Y tế"]%>%
+                                                    </div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-graduation-cap"></i> &nbsp;Giáo dục</dt>
+                                            <dd>
+                                                <div class="progress progress-md" style="background: #fff">
+                                                    <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="<%-details[" Giáo dục "]%>" aria-valuemin="0" aria-valuemax="100" style="width: <%-details[" Giáo dục "]%>%;">
+                                                        <%-details["Giáo dục"]%>%
+                                                    </div>
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-bath"></i> &nbsp;Phòng tắm</dt>
+                                            <dd>
+                                                <%-details["Số phòng tắm"]%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-person-booth"></i> &nbsp;Phòng ngủ</dt>
+                                            <dd>
+                                                <%-details["Số phòng ngủ"]%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-warehouse"></i> &nbsp;Nhà để xe</dt>
+                                            <dd>
+                                                <%-details["Nhà để xe"]%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-bed"></i> &nbsp;Giường</dt>
+                                            <dd>
+                                                <%-details["Giường"]%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-school"></i> &nbsp;Trường học</dt>
+                                            <dd>
+                                                <%-details["Trường học"]%>Km</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-store"></i>&nbsp;&nbsp;Cửa hàng</dt>
+                                            <dd>
+                                                <%-details["Cửa hàng"]%>Km</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-plane-departure"></i>&nbsp;&nbsp;Sân bay</dt>
+                                            <dd>
+                                                <%-details["Sân bay"]%>Km</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-city"></i>&nbsp;&nbsp;Trung tâm TP</dt>
+                                            <dd>
+                                                <%-details["Trung tâm TP"]%>Km</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="fas fa-hospital-alt"></i>&nbsp;&nbsp;Bệnh viện</dt>
+                                            <dd>
+                                                <%-details["Bệnh viện"]%>Km</dd>
+                                        </dl>
+                                        <dl>
+                                            <dt><i class="far fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;Ngày đăng</dt>
+                                            <dd>
+                                                <%-(new Date(Number(details["Ngày"])).getDate()<=9)?"0"+new Date(Number(details["Ngày"])).getDate():new Date(Number(details["Ngày"])).getDate()%>/
+                                                    <%-(new Date(Number(details["Ngày"])).getMonth()+1<=9)?"0"+(new Date(Number(details["Ngày"])).getMonth()+1):new Date(Number(details["Ngày"])).getMonth()+1%>/
+                                                        <%-new Date(Number(details["Ngày"])).getFullYear()%>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                    <!-- /.property-overview -->
+                                </div>
+                                <!-- /.property-content -->
+                                <div class="property-content">
+                                    <div class="property-description">
+                                        <h2>Mô tả chi tiết</h2>
+                                        <p>
+                                            <%-details["Chi tiết"]%>
+                                        </p>
+                                    </div>
+                                    <!-- /.property-description -->
+                                </div>
+                                <!-- /.property-content -->
+                                <div class="property-content">
+
+                                    <div class="property-floor-plans">
+                                        <h2>Hình ảnh</h2>
+                                        <a href="<%-(details.image[8]!==undefined)?details.image[8]:'./noImage.jpg'%>" rel="property-plans" class="cboxElement">
+                    <img width="150" height="150" src="<%-(details.image[8]!==undefined)?details.image[8]:'./noImage.jpg'%>" class="attachment-thumbnail size-thumbnail" alt="plan">                </a>
+                                        <a href="<%-(details.image[9]!==undefined)?details.image[9]:'./noImage.jpg'%>" rel="property-plans" class="cboxElement">
+                    <img width="150" height="150" src="<%-(details.image[9]!==undefined)?details.image[9]:'./noImage.jpg'%>" class="attachment-thumbnail size-thumbnail" alt="plan3">                </a>
+                                        <a href="<%-(details.image[10]!==undefined)?details.image[10]:'./noImage.jpg'%>" rel="property-plans" class="cboxElement">
+                    <img width="150" height="150" src="<%-(details.image[10]!==undefined)?details.image[10]:'./noImage.jpg'%>" class="attachment-thumbnail size-thumbnail" alt="plan2">                </a>
+                                        <a href="<%-(details.image[11]!==undefined)?details.image[11]:'./noImage.jpg'%>" rel="property-plans" class="cboxElement">
+                    <img width="150" height="150" src="<%-(details.image[11]!==undefined)?details.image[11]:'./noImage.jpg'%>" class="attachment-thumbnail size-thumbnail" alt="plan4">                </a>
+                                    </div>
+                                    <!-- /.property-floor-plans -->
+                                </div>
+                                <!-- /.property-content -->
+                                <div class="property-content">
+                                </div>
+                                <!-- /.property-content -->
+                                <!-- AGENT PROPERTIES -->
+
+
+
+                                <div class="similar-properties">
+                                    <h2>Xem thêm các bất động sản liên quan </h2>
+                                    <div class="row">
+
+                                        <%var count%>
+                                            <%if(arrArea.length<=7){%>
+                                                <%count = arrArea.length%>
+                                                    <%}else{%>
+                                                        <%count = 7}%>
+                                                            <%if(arrArea.length>=1){%>
+                                                                <%for (var j = 0; j < count; j++) {%>
+                                                                    <%if(arrArea[j]._id.toString()!==details._id.toString()){%>
+                                                                        <div class="col-md-4 col-sm-6">
+                                                                            <div class="property-box-wrapper">
+
+
+
+                                                                                <div class="property-box">
+                                                                                    <div class="property-box-image ">
+                                                                                        <a href="/chi-tiet?area=<%-arrArea[j]._id%>" class="property-box-image-inner ">
+							
+				            				<img width="270" height="226" src="<%-arrArea[j].image[0]%>" class="attachment-property-box-thumbnail size-property-box-thumbnail" alt="interiors">            
+							<div class="property-box-image-price">
+				    <%-arrArea[j]['Giá']%> tỉ VND</div><!-- /.property-box-image-price -->
+
+				                        
+				                            <span class="property-badge">Featured</span>
+				            
+				                    </a>
+                                                                                    </div>
+                                                                                    <!-- /.property-image -->
+
+                                                                                    <div class="property-box-content">
+                                                                                        <div class="property-box-title">
+
+                                                                                            <h3>
+                                                                                                <a href="/chi-tiet?area=<%-arrArea[j]._id%>">
+                                                                                                    <%-arrArea[j]['Loại dự án']%>
+                                                                                                </a>
+                                                                                            </h3>
+
+                                                                                        </div>
+                                                                                        <!-- /.property-box-title -->
+
+                                                                                        <div class="property-box-body">
+
+                                                                                            <div class="property-box-type">
+                                                                                                <%-arrArea[j]['Loại BDS']%>
+                                                                                            </div>
+                                                                                            <!-- /.property-box-type -->
+
+                                                                                            <div class="property-box-price">
+                                                                                                <%-arrArea[j]['Giá']%> tỉ VND </div>
+                                                                                            <!-- /.property-box-price -->
+
+                                                                                            <div class="property-box-read-more">
+                                                                                                <a href="/chi-tiet?area=<%-arrArea[j]._id%>">Read More</a>
+                                                                                            </div>
+                                                                                            <!-- /.property-box-price -->
+
+                                                                                            <div class="property-box-meta">
+                                                                                                <span class="property-box-meta-item property-box-meta-item-area">
+				            <i class="pp pp-normal-cursor-scale-up"></i> <%-arrArea[j]['Diện tích']%> m2        </span>
+                                                                                                <!-- /.property-box-meta-item -->
+
+                                                                                                <span class="property-box-meta-item property-box-meta-item-beds">
+				            <i class="pp pp-normal-bed"></i> <%-arrArea[j]['Số phòng ngủ']%>        </span>
+                                                                                                <!-- /.property-box-meta-item -->
+
+                                                                                                <span class="property-box-meta-item property-box-meta-item-baths">
+				            <i class="pp pp-normal-shower"></i> <%-arrArea[j]['Số phòng tắm']%>        </span>
+                                                                                                <!-- /.property-box-meta-item -->
+                                                                                            </div>
+                                                                                            <!-- /.property-box-meta -->
+                                                                                        </div>
+                                                                                        <!-- /.property-box-body -->
+                                                                                    </div>
+                                                                                    <!-- /.property-box-content -->
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /.col-sm-4 -->
+                                                                        <%}%>
+                                                                            <%}%>
+                                                                                <%}%>
+
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.similar-properties -->
+                            </article>
+                            <!-- #post-## -->
+
+
+
+                        </div>
+                        <div class="sidebar col-sm-4 col-md-3">
+
+
+                            <div id="agents_widget-2" class="widget widget_agents_widget">
+
+                                <h2 class="widgettitle"> Nhân sự </h2>
+
+
+                                <div class="type-small item-per-row-1">
+
+
+                                    <div class="agents-container">
+
+                                        <div class="agent-small">
+                                            <div class="agent-small-inner">
+                                                <div class="agent-small-image">
+                                                    <a href="./andrew-man/" class="agent-small-image-inner">
+                                                        <img width="150" height="150" src="" class="attachment-thumbnail size-thumbnail" alt=""> </a>
+                                                    <!-- /.agent-small-image-inner -->
+                                                </div>
+                                                <!-- /.agent-small-image -->
+
+                                                <div class="agent-small-content">
+                                                    <h3 class="agent-small-title">
+                                                        <a href="./andrew-man/">Andrew Man</a>
+                                                    </h3>
+
+                                                    <div class="agent-small-email">
+                                                        <a href="mailto:info@example.com">info@example.com</a>
+                                                    </div>
+                                                    <!-- /.agent-small-email -->
+
+                                                    <div class="agent-small-phone">
+                                                        +123-456-789 </div>
+                                                    <!-- /.agent-small-phone -->
+                                                </div>
+                                                <!-- /.agent-small-content -->
+                                            </div>
+                                            <!-- /.agent-small-inner -->
+                                        </div>
+                                        <!-- /.agent-small -->
+                                    </div>
+                                    <!-- /.property-container -->
+
+
+
+                                </div>
+
+
+                            </div>
+
+                            <div id="properties_widget-2" class="widget widget_properties_widget">
+
+                                <h2 class="widgettitle"> Nổi bật </h2>
+
+
+                                <div class="type-small item-per-row-1">
+                                    <%var count%>
+                                        <%if(lowestPrice.length<=4){%>
+                                            <%count = lowestPrice.length%>
+                                                <%}else{%>
+                                                    <%count = 4}%>
+                                                        <%for (var j = 0; j < count; j++) {%>
+                                                            <%if(lowestPrice[j]._id.toString()!==details._id.toString()){%>
+
+                                                                <div class="property-container">
+
+                                                                    <div class="property-small">
+                                                                        <div class="property-small-image ">
+                                                                            <a href="/chi-tiet?area=<%-lowestPrice[j]._id%>" target="_blank">
+				<img width="150" height="150" src="<%-lowestPrice[j].image[0]%>" class="attachment-thumbnail size-thumbnail" alt="interiors">			</a>
+                                                                        </div>
+                                                                        <!-- /.property-small-image -->
+
+                                                                        <div class="property-small-content">
+                                                                            <div class="property-small-type">
+                                                                                <%-lowestPrice[j]['Loại BDS']%>
+                                                                            </div>
+                                                                            <!-- /.property-small-type -->
+
+                                                                            <h3 class="property-small-title">
+                                                                                <a href="/chi-tiet?area=<%-lowestPrice[j]._id%>" target="_blank">
+                                                                                    <%-lowestPrice[j]['Loại dự án']%>
+                                                                                </a>
+                                                                            </h3>
+                                                                            <!-- /.property-small-title -->
+
+                                                                            <div class="property-small-price">
+                                                                                <%-lowestPrice[j]['Giá']%> tỉ VND </div>
+                                                                            <!-- /.property-small-price -->
+                                                                        </div>
+                                                                        <!-- /.property-small-content -->
+                                                                    </div>
+                                                                    <!-- /.property-small -->
+                                                                </div>
+                                                                <!-- /.property-container -->
+                                                                <%}%>
+                                                                    <%}%>
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- /.sidebar -->
+                    </div>
+                    <!-- /.row -->
+                    </script>
+                    <div id="aviators_features_circles-2" class="widget widget_aviators_features_circles">
+                        <div class="fullwidth background-white">
+                            <div class="row">
+
+                                <div class="feature-wrapper col-sm-4">
+                                    <div class="feature-box">
+                                        <div class="feature-icon">
+                                            <a href="/#table-pagination" style="text-decoration: none;">
+                                                <i class="pp pp-normal-pointer"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="feature-content">
+                                            <h3>Tìm Kiếm</h3>
+
+                                            <div class="feature-body">
+                                                Tìm kiếm bất động sản trực tuyến nhanh và được cập nhật 24/7 </div>
+                                            <!-- /.feature-body -->
+
+                                        </div>
+                                        <!-- /.feature-content -->
+                                    </div>
+                                    <!-- /.feature-box -->
+                                </div>
+                                <!-- /.feature-wrapper -->
+
+                                <div class="feature-wrapper col-sm-4">
+                                    <div class="feature-box">
+                                        <div class="feature-icon">
+                                            <i class="pp pp-normal-mobile-phone"></i>
+                                        </div>
+
+                                        <div class="feature-content">
+                                            <h3>Đa thiết bị, đa trình duyệt</h3>
+
+                                            <div class="feature-body">
+                                                Hỗ trợ đa thiết bị(Điện thoại di động, máy tính bảng, máy tính cá nhân) và trình duyệt(Google Chrome, Safari, Firefox, ...) </div>
+                                            <!-- /.feature-body -->
+
+                                        </div>
+                                        <!-- /.feature-content -->
+                                    </div>
+                                    <!-- /.feature-box -->
+                                </div>
+                                <!-- /.feature-wrapper -->
+
+                                <div class="feature-wrapper col-sm-4">
+                                    <div class="feature-box">
+                                        <div class="feature-icon">
+                                            <a href="#map" style="text-decoration: none;">
+                                                <i class="pp pp-normal-map"></i>
+                                            </a>
+                                        </div>
+
+                                        <div class="feature-content">
+                                            <h3>Google Maps</h3>
+
+                                            <div class="feature-body">
+                                                Góc nhìn trực quan hiện đại và thực tế chính xác qua công cụ bản đồ chuẩn xác nhất thế giới hiện tại </div>
+                                            <!-- /.feature-body -->
+
+                                        </div>
+                                        <!-- /.feature-content -->
+                                    </div>
+                                    <!-- /.feature-box -->
+                                </div>
+                                <!-- /.feature-wrapper -->
+                            </div>
+                            <!-- /.clearfix -->
+                        </div>
+                        <!-- /.div -->
+
+                    </div>
+
+                    <div id="aviators_call_to_action-2" class="widget widget_aviators_call_to_action">
+                        <div class="fullwidth background-secondary">
+                            <div class="row">
+                                <div class="call-to-action-text col-sm-12 col-md-12">
+                                    <b>Happy Real</b> &nbsp; luôn cố gắng hết mình vì niềm tin của bạn giao phó </div>
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.fullwidth -->
+
+                    </div>
+
+                    <div class="footer">
+                        <div class="footer-top">
+                            <div class="container">
+                                <div class="footer-top-inner">
+                                    <div class="row">
+
+                                        <div class="widget-container col-sm-6 col-md-6">
+                                            <div id="text-3" class="widget widget_text">
+                                                <h2 class="widgettitle">Thông tin liên hệ:</h2>
+                                                <div class="textwidget">Mọi trao đổi và giải đáp mọi thông tin chi tiết vui lòng liên hệ:
+                                                    <dl>
+                                                        <dt><i class="pp pp-normal-map-pointer"></i>Số 10 Đường Xô Viết Nghệ Tĩnh</dt>
+                                                        <dd>Hải châu - Đà Nẵng</dd>
+                                                        <dt><i class="pp pp-normal-phone"></i> <a href="tel:0902476116‬" style="color:#fff">0902476116‬</a> </dt>
+                                                        <dd><a href="mailto:happyreal@gmail.com" style="color: rgba(255, 255, 255, 0.7)">happyreal@gmail.com</a></dd>
+                                                        <dt><i class="pp pp-normal-clock"></i> Thứ 2 - Thứ 7</dt>
+                                                        <dd>8:00 - 18:00</dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="widget-container col-sm-6 col-md-6">
+                                            <div id="text-4" class="widget widget_text">
+                                                <h2 class="widgettitle">Nhận email từ chúng tôi:</h2>
+                                                <div class="textwidget">Nhận thông tin mới nhất về bất động sản và các biến động từ chúng tôi qua email:
+                                                    <hr>
+                                                    <div class="screen-reader-response"></div>
+                                                    <div class="form-group">
+                                                        <input id="val-email" type="email" name="your-email" value="" size="40" class="form-control" placeholder="abc@xyz.com">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="submit" class="btn btn-secondary pull-right" id="receive-email" value="Gửi">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                                <!-- /.footer-bottom-inner -->
+                            </div>
+                            <!-- /.container -->
+                        </div>
+                        <!-- /.footer-top -->
+
+                        <div class="footer-bottom">
+                            <div class="container">
+                                <div class="footer-bottom-inner">
+                                    <div class="footer-bottom-left">
+                                        <div id="text-2" class="widget widget_text">
+                                            <div class="textwidget">
+                                                <%-new Date().getFullYear()%> © Happy Real<span class="separator">/</span> Created by <a href="https://www.facebook.com/quocanh.vanviet" target="_blank">&nbsp;Van Viet Quoc Anh</a> <span class="separator">/</span> Powered by <a href="https://nodejs.org"
+                                                        target="_blank">Happy Real</a></div>
+                                        </div>
+                                    </div>
+                                    <!-- /.footer-bottom-left -->
+
+                                    <div class="footer-bottom-right">
+                                        <div id="nav_menu-2" class="widget widget_nav_menu">
+                                            <div class="menu-footer-container">
+                                                <ul id="menu-footer" class="menu">
+                                                    <li id="menu-item-534" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-534">
+                                            </div>
+                                            <!-- /.footer-bottom-inner -->
+                                        </div>
+                                        <!-- /.container -->
+                                    </div>
+                                    <!-- /.footer-bottom -->
+                                </div>
+                                <!-- /.footer -->
+                            </div>
+                            <!-- /.container -->
+                        </div>
+                        <!-- /.main -->
+                    </div>
+                    <!-- /.page-wrapper -->
+                    <!-- <script type="text/javascript" src="./content/themes/HappyReal/assets/libraries/colorbox/jquery.colorbox-min.js?ver=4.4.1"></script> -->
+                    <script type="text/javascript" src="./js/events/controler.js"></script>
+
+
+                    <div id="cboxOverlay" style="display: none;"></div>
+                    <div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+                        <div id="cboxWrapper">
+                            <div>
+                                <div id="cboxTopLeft" style="float: left;"></div>
+                                <div id="cboxTopCenter" style="float: left;"></div>
+                                <div id="cboxTopRight" style="float: left;"></div>
+                            </div>
+                            <div style="clear: left;">
+                                <div id="cboxMiddleLeft" style="float: left;"></div>
+                                <div id="cboxContent" style="float: left;">
+                                    <div id="cboxTitle" style="float: left;"></div>
+                                    <div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button>
+                                    <div id="cboxLoadingOverlay" style="float: left;"></div>
+                                    <div id="cboxLoadingGraphic" style="float: left;"></div>
+                                </div>
+                                <div id="cboxMiddleRight" style="float: left;"></div>
+                            </div>
+                            <div style="clear: left;">
+                                <div id="cboxBottomLeft" style="float: left;"></div>
+                                <div id="cboxBottomCenter" style="float: left;"></div>
+                                <div id="cboxBottomRight" style="float: left;"></div>
+                            </div>
+                        </div>
+                        <div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div>
+                    </div>
+                    <div class="popup-alert" style="display: none">
+                        <div class="popup-alert-container">
+                            <div class="popup-alert-container-content">
+                                <h1 class="popup-alert-container-content-title"></h1>
+                                <button class="popup-alert-container-content-btn btn-primary" id="close-alert">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="./js/goToTop.js"></script>
+    </body>
+
+    </html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin - <%-infoCompany.companyName%></title>
+
+        <!--Morris Chart CSS -->
+        <link href="../assets/plugins/ion-rangeslider/ion.rangeSlider.css" rel="stylesheet" type="text/css"/>
+        <link href="../assets/plugins/ion-rangeslider/ion.rangeSlider.skinFlat.css" rel="stylesheet" type="text/css"/>
+
+        <!-- App css -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/core.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/css/pageload.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/components.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/pages.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/menu.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+        <script src="../assets/js/modernizr.min.js"></script>
+
+    </head>
+    <style>
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+          -webkit-appearance: none; 
+          margin: 0; 
+        }
+    </style>
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo"><span>Happy<span>Real</span></span><i class="zmdi zmdi-layers"></i></a>
+                </div>
+
+                <!-- Button mobile view to collapse sidebar menu -->
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+
+                        <!-- Page title -->
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <button class="button-menu-mobile open-left">
+                                    <i class="zmdi zmdi-menu"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <h4 class="page-title"><%-NameRoute%></h4>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="hidden-xs">
+                                <div class="app-search" id="app-search">
+                                    <!-- <input type="text" placeholder="Search..." class="form-control"> -->
+                                    <a href=""><i class="fa fa-search"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- end container -->
+                </div><!-- end navbar -->
+            </div>
+            <!-- Top Bar End -->
+
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+
+                    <!-- User -->
+                    <div class="user-box">
+                        <div class="user-img">
+                            <img src="../assets/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
+                            <div class="user-status offline"><i class="zmdi zmdi-dot-circle"></i></div>
+                        </div>
+                        <h5><a href="#">Mat Helme</a> </h5>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="text-custom">
+                                    <i class="zmdi zmdi-power"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End User -->
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <ul>
+                            <li>
+                                <a href="/admin" class="waves-effect"><i class="zmdi zmdi-view-dashboard"></i> <span> Bảng điều khiển </span> </a>
+                            </li>
+                            <li>
+                                <a href="/admin/can-mua-happy-real" class="waves-effect"><i class="fa  fa-newspaper-o"></i> <span> Danh sách cần mua </span> </a>
+                            </li>
+                            <li>
+                                <a href="/admin/can-ban-happy-real" class="waves-effect"><i class="fa  fa-newspaper-o"></i> <span> Danh sách cần bán </span> </a>
+                            </li>
+                            <li>
+                                <a href="/admin/admin-video-happy-real" class="waves-effect"><i class="fa fa-file-video-o"></i><span> Video </span></a>
+                            </li>
+                            <li>
+                                <a href="/email-happy-real" class="waves-effect"><i class="zmdi zmdi-email"></i><span>Danh sách Email</span></a>
+                            </li>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="dripicons-plus"></i><span>Bất động sản </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/admin/nguyen-tri-phuong-happy-real">Nguyễn Tri Phương</a></li>
+                                    <li><a href="/admin/dao-vip-happy-real">Đảo VIP</a></li>
+                                    <li><a href="/admin/nam-hoa-xuan-happy-real">Nam Hòa Xuân</a></li>
+                                    <li><a href="/admin/hoa-xuan-1a-happy-real">Hoà Xuân 1A</a></li>
+                                    <li><a href="/admin/lang-chau-au-1-happy-real">Làng Châu Âu 1</a></li>
+                                    <li><a href="/admin/lang-chau-au-2-happy-real">Làng Châu Âu 2</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Sidebar -->
+                    <div class="clearfix"></div>
+
+                </div>
+
+            </div>
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card-box">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Lô số</th>
+                                                    <th>Vị trí</th>
+                                                    <th>Loại dự án</th>
+                                                    <th>Giá (tỉ VNĐ)</th>
+                                                    <th>Hướng</th>
+                                                    <th>Diện tích</th>
+                                                    <th>Khu</th>
+                                                    <th>Sổ đỏ</th>
+                                                    <th>Sửa / Xóa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%for (var i = 0; i < result.length; i++) {%>
+                                                    <tr id="<%-result[i]._id%>">
+                                                        <th scope="row"><%-i+1%></th>
+                                                        <td class="landNumber"><%-(result[i]["Lô số"])?result[i]["Lô số"]:""%></td>
+                                                        <td class="location"><%-(result[i]["Vị trí"])?result[i]["Vị trí"]:""%></td>
+                                                        <td class="typeProject"><%-(result[i]["Loại dự án"])?result[i]["Loại dự án"]:""%></td>
+                                                        <td class="price"><%-(result[i]["Giá"])?result[i]["Giá"]:""%></td>
+                                                        <td class="direction"><%-(result[i]["Hướng"])?result[i]["Hướng"].toString():""%></td>
+                                                        <td class="acreage"><%-(result[i]["Diện tích"])?result[i]["Diện tích"]:""%></td>
+                                                        <td class="area"><%-(result[i]["Khu"])?result[i]["Khu"]:""%></td>
+                                                        <td class="area"><%-(result[i]["Sổ đỏ"]=="true")?"có":"không"%></td>
+                                                        <td>
+                                                            <button type="button" class="btn-primary btn <%-result[i]._id%>">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                            <button type="button" class="btn-danger btn <%-result[i]._id%>">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                <%}%>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <div class="form-horizontal text-right" id="form-add">
+                                        <form id="formAddArea" action="" method="post" enctype="multipart/form-data">
+                                            <input type="number" id="date" style="display: none" name="Ngày">
+                                        <div class="form-group row">
+                                            <div class="col-xs-1">
+                                                <input type="text" placeholder="Lô số" name="Lô số" id="landNumber" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-1">
+                                                <input type="text" placeholder="Khu" name="k"  id="landNumber" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="text" placeholder="Vị trí" name="Vị trí" id="location" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="text" placeholder="Loại dự án" name="Loại dự án" id="typeProject" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <select name="Loại BDS" id="typeRealEstate" class="form-control m-b-5 col-xs-3">
+                                                    <option value="">Loại bất động sản</option>
+                                                    <option value="Biệt Thự">Biệt thự</option>
+                                                    <option value="Đất">Đất</option>
+                                                    <option value="Nhà">Nhà</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" placeholder="Giá (tỉ VNĐ)" name="Giá" id="price" min="0" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <select name="Hướng1" id="direction1" class="form-control m-b-5 col-xs-3">
+                                                    <option value="">Hướng</option>
+                                                    <option value="Bắc">Bắc</option>
+                                                    <option value="Nam">Nam</option>
+                                                    <option value="Đông">Đông</option>
+                                                    <option value="Tây">Tây</option>
+                                                    <option value="Đông Bắc">Đông Bắc</option>
+                                                    <option value="Đông Nam">Đông Nam</option>
+                                                    <option value="Tây Bắc">Tây Bắc</option>
+                                                    <option value="Tây Nam">Tây Nam</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <select name="Hướng2" id="direction2" class="form-control m-b-5 col-xs-3">
+                                                    <option value="">Hướng</option>
+                                                    <option value="Bắc">Bắc</option>
+                                                    <option value="Nam">Nam</option>
+                                                    <option value="Đông">Đông</option>
+                                                    <option value="Tây">Tây</option>
+                                                    <option value="Đông Bắc">Đông Bắc</option>
+                                                    <option value="Đông Nam">Đông Nam</option>
+                                                    <option value="Tây Bắc">Tây Bắc</option>
+                                                    <option value="Tây Nam">Tây Nam</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" placeholder="Diện tích (m2)" pattern="!e" name="Diện tích" id="acreage" min="0" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-1 checkbox checkbox-primary">
+                                                <input id="landCertificates" type="checkbox">
+                                                <label for="landCertificates">
+                                                    Sổ đỏ
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-1 checkbox checkbox-primary">
+                                                <input id="certificateOfHousing" type="checkbox">
+                                                <label for="certificateOfHousing">
+                                                    Sổ hồng
+                                                </label>
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="text" placeholder="Khu vực" name="Khu" id="area" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Số phòng tắm" name="Số phòng tắm" id="bathroom" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Số phòng ngủ" name="Số phòng ngủ" id="bedroom" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Nhà để xe" name="Nhà để xe" id="gara" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Giường" name="Giường" id="bed" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" max="100" placeholder="Môi trường(%)" name="Môi trường" id="enviroment" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" max="100" placeholder="An ninh(%)" name="An ninh" id="security" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" max="100" placeholder="Giao thông(%)" name="Giao thông" id="traffic" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" max="100" placeholder="Giáo dục(%)" name="Giáo dục" id="education" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" max="100" placeholder="Y tế(%)" name="Y tế" id="medical" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Cửa hàng(km)" name="Cửa hàng" id="store" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Trường học(km)" name="Trường học" id="schools" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Sân bay(km)" name="Sân bay" id="airport" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Trung tâm TP(km)" name="Trung tâm TP" id="cityCenter" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="number" pattern="!e" min="0" placeholder="Bệnh viện(km)" name="Bệnh viện" id="hospital" class="form-control m-b-5 col-xs-3">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-1" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-2" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-3" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-4" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-5" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-6" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-7" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-8" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-9" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-10" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-11" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="file" name="photos" id="image-12" class="form-control m-b-5 col-xs-3 image">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="details">Mô tả chi tiết:</label>
+                                            <textarea class="form-control" placeholder="Mô tả chi tiết..." name="Chi tiết" style="resize: none;" id="details"></textarea>
+                                        </div>
+                                        <button type="submit" id="submit" class="btn btn-primary waves-effect w-md waves-light m-b-5 m-t-5">Gửi</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    <%-new Date().getFullYear()%> © <%-infoCompany.companyName%>.
+                </footer>
+
+            </div>
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+            <!-- Right Sidebar -->
+            <div class="side-bar right-bar">
+                <a href="javascript:void(0);" class="right-bar-toggle">
+                    <i class="zmdi zmdi-close-circle-o"></i>
+                </a>
+                <h4 class="">Notifications</h4>
+                <div class="notification-list nicescroll">
+                    <ul class="list-group list-no-border user-list">
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="../assets/images/users/avatar-2.jpg" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-info">
+                                    <i class="zmdi zmdi-account"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">New Signup</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-pink">
+                                    <i class="zmdi zmdi-comment"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">New Message received</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item active">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="../assets/images/users/avatar-3.jpg" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">James Anderson</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 days ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item active">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-warning">
+                                    <i class="zmdi zmdi-settings"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Settings</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+        <div class='waitting-post d-none' id="waitHtml">
+            <div class="containerAnime">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- jQuery  -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/detect.js"></script>
+        <script src="../assets/js/fastclick.js"></script>
+        <script src="../assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/js/jquery.blockUI.js"></script>
+        <script src="../assets/js/waves.js"></script>
+        <script src="../assets/js/jquery.nicescroll.js"></script>
+        <script src="../assets/js/jquery.slimscroll.js"></script>
+        <script src="../assets/js/jquery.scrollTo.min.js"></script>
+        <script src="../assets/plugins/tinymce/tinymce.min.js"></script>
+        <!-- KNOB JS -->
+        <script type="text/javascript" src="../assets/plugins/jquery-knob/excanvas.js"></script>
+        <!-- <script src="../assets/plugins/morris/morris.min.js"></script> -->
+        <script src="../assets/plugins/raphael/raphael-min.js"></script>
+
+        <!-- Dashboard init -->
+        <!-- <script src="../assets/pages/jquery.dashboard.js"></script> -->
+
+        <!-- App js -->
+        <script src="../assets/js/jquery.core.js"></script>
+        <script src="../assets/js/jquery.app.js"></script>
+        <script type="text/javascript" src="../js/form-text-word.js"></script>
+        <script type="text/javascript" src="../js/form-send-new-real-estate.js"></script>
+    </body>
+</html>
